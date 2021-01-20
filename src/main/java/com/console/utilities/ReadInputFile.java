@@ -17,7 +17,6 @@ public class ReadInputFile {
 
         try (Stream<String> stream = Files.lines(Paths.get(path))){
             stream.forEach(System.out::println);
-
             System.out.println("Press Enter to proceed");
         } catch (IOException e) {
             e.printStackTrace();

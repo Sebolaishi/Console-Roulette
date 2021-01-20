@@ -11,11 +11,10 @@ public class ConsoleRoulette {
         Scanner scanner = new Scanner(System.in);
 
         ReadInputFile.getPlayerNames();
-
-
         scanner.nextLine();
 
         UserInputs.getUserInput();
+
 
     }
 }
