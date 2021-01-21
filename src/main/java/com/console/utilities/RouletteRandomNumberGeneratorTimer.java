@@ -18,6 +18,8 @@ public class RouletteRandomNumberGeneratorTimer extends TimerTask {
     public void run() {
         randomNumber = getRandomNumber(MIN_BET_NUMBER, MAX_BET_NUMBER);
         System.out.println( "Landed Random Number : " + randomNumber);
+        System.out.println("Stopping App.");
+        //System.exit(0);
     }
 
     public static int getRandomNumber(int min, int max){

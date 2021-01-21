@@ -1,17 +1,21 @@
 package com.console.utilities;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInputs {
 
-    private static Integer betNumber= null;
+    private static Integer betNumber;
 
     public UserInputs() {
     }
 
-    public static void getUserInput(){
+    public static void getUserInput(List<String> names){
 
         Scanner scanner = new Scanner(System.in);
+
+        int index = scanner.nextInt();
+        System.out.println("Placing bet for : " + names.get(index));
 
         System.out.println("Please Enter Bet");
         String bet = scanner.nextLine();
@@ -24,15 +28,8 @@ public class UserInputs {
         }
 
         System.out.println("Please Enter Amount");
-        double amount;
-        try{
-            amount = scanner.nextDouble();
-        }catch (Exception exception){
-            System.out.println("Error :" + exception.getMessage());
-            System.out.println("Please choose a number between 1 - 36 ");
-            amount = scanner.nextDouble();
-        }
-
+        String amount;
+        amount = scanner.nextLine();
 
     }
 }

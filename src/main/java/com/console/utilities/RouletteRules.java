@@ -1,12 +1,12 @@
 package com.console.utilities;
 
-public class rouletteRules {
+public class RouletteRules {
 
     private static int BONUS_WIN = 36;
     private static int EVEN = 2;
     private static int ODD = 3;
 
-    public rouletteRules() {
+    public RouletteRules() {
     }
 
     public static double bonusWin(int betAmount){
