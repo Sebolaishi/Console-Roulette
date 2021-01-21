@@ -11,7 +11,7 @@ import java.util.TimerTask;
 
 public class ConsoleRoulette {
 
-    static long THIRTY_SECONDS = 10000;
+    static long THIRTY_SECONDS = 60000;
 
     /**
      * Application entry point starts here.
@@ -30,6 +30,8 @@ public class ConsoleRoulette {
         List<String> names = ReadInputFile.getPlayerNames();
 
         UserInputs.getUserInput(names);
+
+        scanner.nextLine();
 
 
     }
