@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class ReadInputFile {
@@ -13,7 +14,8 @@ public class ReadInputFile {
 
 
     public static void getPlayerNames(){
-        String path = "/Users/lodwinmoloto/Workplace/playerNames.txt";
+
+        String path = Objects.requireNonNull(ReadInputFile.class.getClassLoader().getResource("playerNames.txt")).getPath();
 
         try (Stream<String> stream = Files.lines(Paths.get(path))){
             stream.forEach(System.out::println);
