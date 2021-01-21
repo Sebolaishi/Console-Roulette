@@ -1,5 +1,8 @@
 package com.console.utilities;
 
+import com.console.domain.Bet;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -14,6 +17,8 @@ public class UserInputs {
 
     public static void getUserInput(List<String> names){
         Pattern pattern = Pattern.compile("[a-zA-Z]");
+        Bet playerBet = new Bet();
+        List<Bet> betList = new ArrayList<>();
 
         int index = 0;
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +31,7 @@ public class UserInputs {
         }
 
         System.out.println("Placing bet for : " + names.get(index));
-
+        playerBet.setPlayerName(names.get(index));
         System.out.println("__________________________________");
         scanner.nextLine();
 
@@ -38,6 +43,13 @@ public class UserInputs {
                 System.out.println("Please choose a number between 1 - 36 :");
                 betNumber = scanner.nextInt();
             }
+            bet = null;
+        }
+
+        if (bet == null){
+            playerBet.setBet(betNumber.toString());
+        }else {
+            playerBet.setBet(bet);
         }
 
         System.out.println("Please Enter Amount : ");
@@ -49,6 +61,8 @@ public class UserInputs {
             amount = scanner.next();
         }
 
+        playerBet.setAmount(Double.parseDouble(amount));
+        betList.add(playerBet);
 
     }
 }
