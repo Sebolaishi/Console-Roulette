@@ -16,7 +16,7 @@ public class UserInputs {
     }
 
     public static void getUserInput(List<String> names){
-        Pattern pattern = Pattern.compile("[a-zA-Z]");
+
         Bet playerBet = new Bet();
         List<Bet> betList = new ArrayList<>();
 
@@ -37,6 +37,28 @@ public class UserInputs {
 
         System.out.println("Please Enter Bet : ");
         String bet = scanner.nextLine();
+        getBet(playerBet, scanner, bet);
+
+        System.out.println("Please Enter Amount : ");
+        String amount = scanner.next();
+        playerBet.setAmount(Double.parseDouble(getBetAmount(scanner,amount)));
+
+        betList.add(playerBet);
+
+    }
+
+    private static String getBetAmount(Scanner scanner, String amount){
+        Pattern pattern = Pattern.compile("[a-zA-Z]");
+        Matcher matcher = pattern.matcher(amount);
+
+        while (matcher.find()){
+            System.out.println("Error! Amount should not contain letters, please try again : ");
+            amount = scanner.next();
+        }
+        return amount;
+    }
+
+    private static void getBet(Bet playerBet ,Scanner scanner, String bet){
         if (!(bet.equalsIgnoreCase(BetOptions.EVEN.toString()) || bet.equalsIgnoreCase(BetOptions.ODD.toString()))){
             betNumber = Integer.parseInt(bet);
             while (betNumber < 1 || betNumber > 36 ){
@@ -52,17 +74,6 @@ public class UserInputs {
             playerBet.setBet(bet);
         }
 
-        System.out.println("Please Enter Amount : ");
-        String amount = scanner.next();
-        Matcher matcher = pattern.matcher(amount);
-
-        while (matcher.find()){
-            System.out.println("Error! Amount should not contain letters, please try again : ");
-            amount = scanner.next();
-        }
-
-        playerBet.setAmount(Double.parseDouble(amount));
-        betList.add(playerBet);
 
     }
 }
