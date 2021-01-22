@@ -1,6 +1,9 @@
 package com.console.utilities;
 
+import com.console.domain.Bet;
+
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -18,10 +21,21 @@ public class RouletteRandomNumberGeneratorTimer extends TimerTask {
     public void run() {
         randomNumber = getRandomNumber(MIN_BET_NUMBER, MAX_BET_NUMBER);
         setRandomNumber(randomNumber);
-        System.out.println( "Landed Random Number : " + randomNumber);
-        BetResults.getBetsResults(randomNumber);
+        System.out.println( "Random Number : " + randomNumber + "\n");
+        List<Bet> playerBets = BetResults.getBetsResults(randomNumber);
+
+        System.out.println("\n-----------------------------------------" + "\n\t\t Bet Results");
+        System.out.println("-----------------------------------------");
+
+        System.out.println("Number : " + randomNumber);
+        System.out.println("Player" + "\tBet" + "\tOutcome" + "\tWinnings");
+        playerBets.forEach(bet -> {
+            System.out.println(bet.getPlayerName() + "\t" + bet.getBet() + "\t" + bet.getOutcome() + "\t" + bet.getAmount());
+        });
+
+        System.out.println("\n-------------------END-------------------\n");
         System.out.println("Stopping App.");
-        //System.exit(0);
+        System.exit(0);
     }
 
     public static int getRandomNumber(int min, int max){

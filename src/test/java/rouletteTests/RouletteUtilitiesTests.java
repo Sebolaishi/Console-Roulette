@@ -71,7 +71,6 @@ public class RouletteUtilitiesTests extends  BetDomainModelTest{
             Assert.assertFalse(RouletteRules.isEven(randomNumber));
         }
 
-
     }
 
     @Test

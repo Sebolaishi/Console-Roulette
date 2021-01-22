@@ -11,7 +11,7 @@ import java.util.TimerTask;
 
 public class ConsoleRoulette {
 
-    static long THIRTY_SECONDS = 30000;
+    static long THIRTY_SECONDS = 10000;
 
     /**
      * Application entry point starts here.
@@ -26,10 +26,7 @@ public class ConsoleRoulette {
         TimerTask task = new RouletteRandomNumberGeneratorTimer();
         timer.schedule(task, THIRTY_SECONDS);
 
-
-
         List<String> names = ReadInputFile.getPlayerNames();
-
         UserInputs.getUserInput(names);
 
         scanner.nextLine();

@@ -15,6 +15,17 @@ public class Bet implements Serializable {
     public Bet() {
     }
 
+    public Bet(String playerName, String bet, double amount, String outcome) {
+        this.playerName = playerName;
+        this.bet = bet;
+        this.amount = amount;
+        this.outcome = outcome;
+    }
+
+    public static Bet copy( Bet contextBet) {
+        return  new Bet( contextBet.getPlayerName(), contextBet.getBet(), contextBet.getAmount(), contextBet.getOutcome());
+    }
+
     public String getPlayerName() {
         return playerName;
     }
