@@ -12,13 +12,14 @@ public class UserInputs {
 
     private static Integer betNumber;
 
+    private static List<Bet> betList = new ArrayList<>();
+
     public UserInputs() {
     }
 
     public static void getUserInput(List<String> names){
 
         Bet playerBet = new Bet();
-        List<Bet> betList = new ArrayList<>();
 
         int index = 0;
         Scanner scanner = new Scanner(System.in);
@@ -74,6 +75,10 @@ public class UserInputs {
             playerBet.setBet(bet);
         }
 
-
     }
+
+    public static List<Bet> getBetList() {
+        return betList;
+    }
+
 }

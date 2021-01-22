@@ -10,6 +10,8 @@ public class Bet implements Serializable {
 
     private double amount;
 
+    private String outcome;
+
     public Bet() {
     }
 
@@ -35,6 +37,14 @@ public class Bet implements Serializable {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getOutcome() {
+        return outcome;
+    }
+
+    public void setOutcome(String outcome) {
+        this.outcome = outcome;
     }
 
     @Override
