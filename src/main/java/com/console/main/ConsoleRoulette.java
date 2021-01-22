@@ -26,8 +26,8 @@ public class ConsoleRoulette {
         TimerTask task = new RouletteRandomNumberGeneratorTimer();
         timer.schedule(task, THIRTY_SECONDS);
 
-        List<String> names = ReadInputFile.getPlayerNames();
-        UserInputs.getUserInput(names);
+
+        UserInputs.getBets(scanner);
 
         scanner.nextLine();
 

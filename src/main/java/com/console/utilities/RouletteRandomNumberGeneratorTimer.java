@@ -20,7 +20,6 @@ public class RouletteRandomNumberGeneratorTimer extends TimerTask {
     @Override
     public void run() {
         randomNumber = getRandomNumber(MIN_BET_NUMBER, MAX_BET_NUMBER);
-        setRandomNumber(randomNumber);
         System.out.println( "Random Number : " + randomNumber + "\n");
         List<Bet> playerBets = BetResults.getBetsResults(randomNumber);
 

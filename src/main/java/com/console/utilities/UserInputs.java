@@ -17,12 +17,11 @@ public class UserInputs {
     public UserInputs() {
     }
 
-    public static void getUserInput(List<String> names){
+    public static void getUserInput(Scanner scanner, List<String> names){
 
         Bet playerBet = new Bet();
 
         int index = 0;
-        Scanner scanner = new Scanner(System.in);
 
         index = scanner.nextInt();
         System.out.println("__________________________________");
@@ -46,6 +45,18 @@ public class UserInputs {
 
         betList.add(playerBet);
 
+    }
+
+    public static void getBets(Scanner scanner){
+        List<String> names = ReadInputFile.getPlayerNames();
+        getUserInput(scanner, names);
+
+        System.out.println(" Please press number 1 to bet again ");
+        String click = scanner.next();
+        if (!click.isEmpty()){
+            System.out.println("Please select player by number ");
+            getUserInput(scanner, names);
+        }
     }
 
     private static String getBetAmount(Scanner scanner, String amount){
