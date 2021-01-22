@@ -1,12 +1,15 @@
 package rouletteTests;
 
 import com.console.domain.Bet;
+import com.console.utilities.ReadInputFile;
 import com.console.utilities.RouletteRandomNumberGeneratorTimer;
+import com.console.utilities.RouletteRules;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -34,6 +37,12 @@ public class RouletteUtilitiesTests extends  BetDomainModelTest{
     }
 
     @Test
+    public void getPlayerNamesTest(){
+        List<String> playerNames = ReadInputFile.getPlayerNames();
+        Assert.assertNotNull(playerNames);
+    }
+
+    @Test
     public void playerBetTest(){
         try{
             capturePlayerBet();
@@ -55,6 +64,14 @@ public class RouletteUtilitiesTests extends  BetDomainModelTest{
     @Test
     public void generateRandomNumberTest(){
         Assert.assertNotNull(randomNumber);
+
+        if (RouletteRules.isEven(randomNumber)){
+            Assert.assertTrue(RouletteRules.isEven(randomNumber));
+        }else {
+            Assert.assertFalse(RouletteRules.isEven(randomNumber));
+        }
+
+
     }
 
     @Test
