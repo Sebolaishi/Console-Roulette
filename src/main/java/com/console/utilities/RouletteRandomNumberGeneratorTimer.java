@@ -23,7 +23,7 @@ public class RouletteRandomNumberGeneratorTimer extends TimerTask {
         System.out.println( "Random Number : " + randomNumber + "\n");
         List<Bet> playerBets = BetResults.getBetsResults(randomNumber);
 
-        System.out.println("\n-----------------------------------------" + "\n\t\t Bet Results");
+        System.out.println("\n-----------------------------------------" + "\n\t\t\t Bet Results");
         System.out.println("-----------------------------------------");
 
         System.out.println("Number : " + randomNumber);
