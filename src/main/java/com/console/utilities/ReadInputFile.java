@@ -9,17 +9,30 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
+/**
+ * Read Input file class
+ */
 public class ReadInputFile {
 
-    public ReadInputFile() throws IOException {
+    /**
+     * Constructors
+     */
+    public ReadInputFile() {
     }
 
+    /**
+     * Methods
+     */
 
+    /**
+     * Method reads player names and print them on console
+     * @return playerNames
+     */
     public static List<String> getPlayerNames(){
 
         AtomicInteger count = new AtomicInteger();
-
         List<String> playerNames = new ArrayList<>();
+
         String path = Objects.requireNonNull(ReadInputFile.class.getClassLoader().getResource("playerNames.txt")).getPath();
 
         try (Stream<String> stream = Files.lines(Paths.get(path))){

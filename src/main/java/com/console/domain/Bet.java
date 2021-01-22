@@ -2,19 +2,32 @@ package com.console.domain;
 
 import java.io.Serializable;
 
+/**
+ * Bets Object Model
+ */
 public class Bet implements Serializable {
 
+    /**
+     * Properties
+     */
     private String playerName;
-
     private String bet;
-
     private double amount;
-
     private String outcome;
 
+    /**
+     * Constructors
+     */
     public Bet() {
     }
 
+    /**
+     *
+     * @param playerName
+     * @param bet
+     * @param amount
+     * @param outcome
+     */
     public Bet(String playerName, String bet, double amount, String outcome) {
         this.playerName = playerName;
         this.bet = bet;
@@ -22,9 +35,23 @@ public class Bet implements Serializable {
         this.outcome = outcome;
     }
 
+    /**
+     * Methods
+     */
+
+    /**
+     * Method makes a copy of the selected bet for purposes of iteration
+     * @param contextBet
+     * @return
+     */
     public static Bet copy( Bet contextBet) {
         return  new Bet( contextBet.getPlayerName(), contextBet.getBet(), contextBet.getAmount(), contextBet.getOutcome());
     }
+
+    /**
+     * Getters and Setters
+     * @return
+     */
 
     public String getPlayerName() {
         return playerName;

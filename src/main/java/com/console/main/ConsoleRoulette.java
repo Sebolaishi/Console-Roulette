@@ -1,17 +1,21 @@
 package com.console.main;
 
-import com.console.utilities.ReadInputFile;
 import com.console.utilities.RouletteRandomNumberGeneratorTimer;
-import com.console.utilities.UserInputs;
+import com.console.utilities.PlayerInputs;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Main Class
+ */
 public class ConsoleRoulette {
 
-    static long THIRTY_SECONDS = 10000;
+    /**
+     * Properties
+     */
+    static long THIRTY_SECONDS = 30000;
 
     /**
      * Application entry point starts here.
@@ -21,16 +25,11 @@ public class ConsoleRoulette {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("App started!");
-
         Timer timer = new Timer();
         TimerTask task = new RouletteRandomNumberGeneratorTimer();
         timer.schedule(task, THIRTY_SECONDS);
 
-
-        UserInputs.getBets(scanner);
-
+        PlayerInputs.getBets(scanner);
         scanner.nextLine();
-
-
     }
 }

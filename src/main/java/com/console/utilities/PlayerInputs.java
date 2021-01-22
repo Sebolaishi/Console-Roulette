@@ -8,21 +8,39 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserInputs {
+/**
+ * Player Inputs class
+ */
+public class PlayerInputs {
 
+    /**
+     * Properties
+     */
+    private static Integer MIN_BET_NUMBER = 1;
+    private static Integer MAX_BET_NUMBER = 36;
     private static Integer betNumber;
-
     private static List<Bet> betList = new ArrayList<>();
 
-    public UserInputs() {
+    /**
+     * Constructor
+     */
+    public PlayerInputs() {
     }
 
-    public static void getUserInput(List<String> names){
+    /**
+     * Methods
+     */
+
+    /**
+     * Method gets user inputs for making a bet
+     * Stores the inputs to a bet object
+     * Store each player bet into a list of bets
+     * @param names
+     */
+    public static void getPlayerInput(List<String> names){
 
         Bet playerBet = new Bet();
-
         Scanner scanner = new Scanner(System.in);
-
         int index = 0;
 
         index = scanner.nextInt();
@@ -46,21 +64,31 @@ public class UserInputs {
         playerBet.setAmount(Double.parseDouble(getBetAmount(scanner,amount)));
 
         betList.add(playerBet);
-
     }
 
+    /**
+     * Entry method for player data capturing
+     * @param scanner
+     */
     public static void getBets(Scanner scanner){
         List<String> names = ReadInputFile.getPlayerNames();
-        getUserInput(names);
+        getPlayerInput(names);
 
         System.out.println(" Please press number 1 to bet again ");
         String click = scanner.next();
         if (!click.isEmpty()){
             System.out.println("Please select player by number ");
-            getUserInput(names);
+            getPlayerInput(names);
         }
     }
 
+    /**
+     * Method validates if bet amount input scanned is numerical
+     * If amount value is not numerical it gives warning to a player, such that they capture correct input values
+     * @param scanner
+     * @param amount
+     * @return amount
+     */
     private static String getBetAmount(Scanner scanner, String amount){
         Pattern pattern = Pattern.compile("[a-zA-Z]");
         Matcher matcher = pattern.matcher(amount);
@@ -72,10 +100,16 @@ public class UserInputs {
         return amount;
     }
 
+    /**
+     * Method validates the playerBet inputs such that they right
+     * @param playerBet
+     * @param scanner
+     * @param bet
+     */
     private static void getBet(Bet playerBet ,Scanner scanner, String bet){
         if (!(bet.equalsIgnoreCase(BetOptions.EVEN.toString()) || bet.equalsIgnoreCase(BetOptions.ODD.toString()))){
             betNumber = Integer.parseInt(bet);
-            while (betNumber < 1 || betNumber > 36 ){
+            while (betNumber < MIN_BET_NUMBER || betNumber > MAX_BET_NUMBER ){
                 System.out.println("Please choose a number between 1 - 36 :");
                 betNumber = scanner.nextInt();
             }
@@ -90,6 +124,10 @@ public class UserInputs {
 
     }
 
+    /**
+     * Method gets list of bets
+     * @return betList
+     */
     public static List<Bet> getBetList() {
         return betList;
     }
