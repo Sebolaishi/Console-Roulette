@@ -27,8 +27,8 @@ public class Conversions {
      * @param kelvin
      * @return
      */
-    private static float ktoc(float kelvin) {
-        return (float) (kelvin - ABSOLUTE_ZERO);
+    public static float ktoc(float kelvin) {
+        return (kelvin - ABSOLUTE_ZERO);
     }
 
     /**
@@ -36,8 +36,8 @@ public class Conversions {
      * @param celsius
      * @return
      */
-    private static float ctoc(float celsius) {
-        return (float) (celsius + ABSOLUTE_ZERO);
+    public static float ctoc(float celsius) {
+        return (celsius + ABSOLUTE_ZERO);
     }
 
     /**
@@ -45,8 +45,8 @@ public class Conversions {
      * @param miles
      * @return
      */
-    private static double mtok(double miles){
-        return KM_CONVERTOR * miles;
+    public static double mtok(double miles){
+        return (KM_CONVERTOR * miles);
     }
 
     /**
@@ -54,7 +54,7 @@ public class Conversions {
      * @param kilometer
      * @return
      */
-    static double ktom(double kilometer){
-        return kilometer/KM_CONVERTOR;
+    public static double ktom(double kilometer){
+        return (kilometer/KM_CONVERTOR);
     }
 }
