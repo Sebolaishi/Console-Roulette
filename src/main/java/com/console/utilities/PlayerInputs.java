@@ -62,6 +62,7 @@ public class PlayerInputs {
         System.out.println("Please Enter Amount : ");
         String amount = scanner.next();
         playerBet.setAmount(Double.parseDouble(getBetAmount(scanner,amount)));
+        System.out.println("\n____________End of Bet____________\n");
 
         betList.add(playerBet);
     }
@@ -75,11 +76,10 @@ public class PlayerInputs {
         List<String> names = ReadInputFile.getPlayerNames();
         getPlayerInput(names);
 
-        System.out.println(" Please press number 1 to bet again ");
+        System.out.println(" Please press number 1 to choose new player or bet again ");
         String click = scanner.next();
 
         while (!click.isEmpty()){
-            System.out.println("\n____________End of Bet____________");
             System.out.println("Please select player by number ");
             System.out.println("_____________New Bet______________\n");
             getPlayerInput(names);

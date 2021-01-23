@@ -30,8 +30,10 @@ public class RouletteRandomNumberGeneratorTimer extends TimerTask {
     @Override
     public void run() {
         randomNumber = getRandomNumber(MIN_BET_NUMBER, MAX_BET_NUMBER);
-        System.out.println( "Random Number : " + randomNumber + "\n");
         List<Bet> playerBets = BetResults.getBetsResults(randomNumber);
+
+        System.out.println("\n********************************************" + "\n\t Bet round closed, check results below");
+        System.out.println("********************************************");
 
         if (!playerBets.isEmpty()){
             System.out.println("\n-----------------------------------------" + "\n\t\t\t Bet Results");
