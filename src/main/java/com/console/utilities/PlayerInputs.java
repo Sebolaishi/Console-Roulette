@@ -52,7 +52,7 @@ public class PlayerInputs {
 
         System.out.println("Placing bet for : " + names.get(index));
         playerBet.setPlayerName(names.get(index));
-        System.out.println("__________________________________");
+        System.out.println("________________________________");
         scanner.nextLine();
 
         System.out.println("Please Enter Bet : ");
@@ -71,13 +71,17 @@ public class PlayerInputs {
      * @param scanner
      */
     public static void getBets(Scanner scanner){
+
         List<String> names = ReadInputFile.getPlayerNames();
         getPlayerInput(names);
 
         System.out.println(" Please press number 1 to bet again ");
         String click = scanner.next();
-        if (!click.isEmpty()){
+
+        while (!click.isEmpty()){
+            System.out.println("\n____________End of Bet____________");
             System.out.println("Please select player by number ");
+            System.out.println("_____________New Bet______________\n");
             getPlayerInput(names);
         }
     }

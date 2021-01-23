@@ -14,6 +14,7 @@ public class BetResults {
      * Properties
      */
     private static List<Bet> betList = new ArrayList<>();
+    private static double value;
 
     /**
      * Constructors
@@ -63,6 +64,7 @@ public class BetResults {
             bet.setOutcome(BetOutcomes.WIN.name());
         }
         else{
+            bet.setAmount(value);
             bet.setOutcome(BetOutcomes.LOSE.name());
         }
     }
@@ -76,6 +78,7 @@ public class BetResults {
             bet.setAmount(RouletteRules.bonusWin(bet.getAmount()));
             bet.setOutcome(BetOutcomes.WIN.name());
         }else {
+            bet.setAmount(value);
             bet.setOutcome(BetOutcomes.LOSE.name());
         }
 
@@ -91,6 +94,8 @@ public class BetResults {
             bet.setAmount(RouletteRules.evenOrOddNumberWin(bet.getAmount()));
             bet.setOutcome(BetOutcomes.WIN.name());
         } else {
+
+            bet.setAmount(value);
             bet.setOutcome(BetOutcomes.LOSE.name());
         }
     }
