@@ -1,14 +1,16 @@
-package rouletteTests;
+package commons;
 
 import com.console.domain.Bet;
 import com.console.utilities.BetOptions;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 /**
- * Domain Model Test Class
+ * TestsCommons Class
  */
-public class BetDomainModelTest {
+public class TestsCommons {
 
     /**
      * Properties
@@ -18,13 +20,32 @@ public class BetDomainModelTest {
     /**
      * Constructors
      */
-    public BetDomainModelTest() {
-
+    public TestsCommons() {
     }
 
     /**
      * Methods
      */
+
+    /**
+     * Method executes first to initialise, and prepare necessary data
+     */
+    @BeforeClass
+    public static void setUpBeforeClass()
+    {
+        System.out.println(" \n Starting Tests Execution ");
+        System.out.println(" ____________________________________________________________\n ");
+    }
+
+    /**
+     * Method runs last after all tests execute to print on console the message
+     */
+    @AfterClass
+    public static void setUpAfterClass()
+    {
+        System.out.println("\nTests Finished ");
+        System.out.println(" ____________________________________________________________\n ");
+    }
 
     /**
      *Method sets bets properties data, for testing purposes

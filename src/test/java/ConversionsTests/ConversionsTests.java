@@ -1,15 +1,14 @@
 package ConversionsTests;
 
 import com.conversions.service.Conversions;
-import org.junit.AfterClass;
+import commons.TestsCommons;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  * Conversions tests class
  */
-public class ConversionsTests {
+public class ConversionsTests extends TestsCommons {
 
     /**
      * Properties
@@ -22,26 +21,6 @@ public class ConversionsTests {
     /**
      * Methods
      */
-
-    /**
-     * Method executes first to initialise, and prepare necessary data
-     */
-    @BeforeClass
-    public static void setUpBeforeClass()
-    {
-        System.out.println(" Starting Tests Execution ");
-        System.out.println(" ____________________________________________________________\n ");
-    }
-
-    /**
-     * Method runs last after all tests execute to print on console the message
-     */
-    @AfterClass
-    public static void setUpAfterClass()
-    {
-        System.out.println("\nTests Finished ");
-        System.out.println(" ____________________________________________________________\n ");
-    }
 
     /**
      * Test kelvin to celsius functionality
